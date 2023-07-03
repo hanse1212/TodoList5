@@ -22,7 +22,9 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
   return (
     <div className="TodoList">
       <spqn>Todo List</spqn>
-      <button>asd</button>
+      <select>
+        <option></option>
+      </select>
       <input
         className="searchbar"
         placeholder="검색어를 입력하세요"

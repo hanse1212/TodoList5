@@ -1,5 +1,5 @@
 const express = require("express");
-const { Todo } = require("../models");
+const { Todo, sequelize } = require("../models");
 
 const router = express.Router();
 
@@ -7,7 +7,14 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     // SELECT * FROM todos;
+    // sequelize.qu
+    // select distinct content_c from todos
+    const todoC = await Todo.findAll({
+      attributes: ['content_c'], group: ['content_c']
+    });
+    // alert(todoC);
     const todos = await Todo.findAll();
+
     res.status(200).send(todos);
   } catch (err) {
     next(err);
